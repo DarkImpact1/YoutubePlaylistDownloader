@@ -25,6 +25,9 @@ number of videos which can be downloaded (It will of High Resolution)
 Open the terminal then 
 
 [+] apt-get update -y && apt-get upgrade -y
-[+] apt install git
+
+[+] apt install git 
+
 [+] git clone https://github.com/DarkImpact1/YoutubePlaylistDownloader.git
+
 [+] python3 main.py
