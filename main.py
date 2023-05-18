@@ -7,12 +7,14 @@ def download_playlist(url,path=os.getcwd()):
     # displaying number of videos in the playlist
     print(f"[+] Number of videos in the playlist: {len(playlist.video_urls)}")
     # asking for confirmation 
-    confirmation = input("[+] Would you like to continue...? (y/n)").lower()
+    confirmation = input("[+] Would you like to continue...? (y/n)\t ").lower()
     if confirmation == 'y':
         try:
-            for video_url in playlist.video_urls:
+            num_input = input("[+] Enter the starting point of the playlist from where you want to download the video (leave blank for 0): ")
+            num = int(num_input) if num_input.strip().isdigit() else 0  # Assign 0 as default if num_input is blank
+            for index,video_url in enumerate(list(playlist.video_urls)[num:]):
                 video = YouTube(video_url)
-                print(f"[+] Downloading '{video.title}'...")
+                print(f"[+] Downloading '{video.title}'........\n[-] Remaining : {len(playlist.video_urls)-num}")
                 # here you can also select opt for the resolution and provide path in download
                 video.streams.get_highest_resolution().download(path)
             # once all videos are downloaded you'll be notified
