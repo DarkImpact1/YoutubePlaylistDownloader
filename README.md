@@ -1,7 +1,7 @@
 
 # YoutubePlaylistDownloader
 
-This Python script allows you to download videos from a YouTube playlist using the pytube library. It provides a command-line interface that prompts the user to enter the URL of the playlist and the path where they want to save the downloaded videos.
+This Python script allows you to download videos from a YouTube playlist using the pytube library. It provides a command-line interface that prompts the user to enter the URL of the playlist and the path where they want to save the downloaded videos of desired resolution.
 
 
 ## Requirements
@@ -38,7 +38,7 @@ you can run it on termux as well as in linux distribution.
 - Run the script using the command python playlist_downloader.py.
 - Enter the URL of the playlist when prompted.
 - Enter the path where you want to save the downloaded videos.
-- Confirm the download and optionally specify the starting point in the playlist.
+- Confirm the download and select the resoltion as well as optionally specify the starting point in the playlist.
 - Sit back and let the script download the videos for you!
 - Once the download is complete, you will be notified.
 
