@@ -10,18 +10,23 @@ def availableResolution(main_url):
         resolution = f"{stream.resolution} {stream.mime_type.split('/')[1]}"
         if resolution not in available_resolutions:
             available_resolutions.append(resolution[:5])
-    return list(set(available_resolutions))
+    avail_reso = list(set(available_resolutions))
+    print(f'[+] Available Resolutions are : ', avail_reso)
+    user_choice = input('Enter the resolution of video (Ex: 720p)\t')
+    return user_choice
+
+
+def length_of_playlist(playlist):
+    # displaying number of videos in the playlist & asking for confirmation
+    print(f"[+] Number of videos in the playlist: {len(playlist.video_urls)}")
+    answer = input("[+] Would you like to continue...? (y/n)\t ").lower()
+    return answer
 
 
 def download_playlist(url, path=os.getcwd()):
     playlist = Playlist(url)
-    # displaying number of videos in the playlist
-    print(f"[+] Number of videos in the playlist: {len(playlist.video_urls)}")
-    # asking for confirmation
-    confirmation = input("[+] Would you like to continue...? (y/n)\t ").lower()
-    avail_reso = availableResolution(url)
-    print(f'[+] Available Resolutions are : ', avail_reso)
-    resolution = input('Enter the resolution of video (Ex: 720p)\t')
+    confirmation = length_of_playlist(playlist)
+    resolution = availableResolution(url)
     if confirmation == 'y':
         try:
             num_input = input(
